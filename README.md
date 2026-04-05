@@ -99,7 +99,7 @@ mvn clean install
 mvn spring-boot:run
 ```
 
-The server starts on **http://localhost:8080**
+The server starts on **http://localhost:8081**
 
 ### 4. Explore the API
 
