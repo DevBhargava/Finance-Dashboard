@@ -1,0 +1,47 @@
+server:
+  port: 8081
+
+spring:
+  application:
+    name: finance-dashboard-backend
+
+  datasource:
+    url: jdbc:mysql://localhost:3306/fdb         # change this before running
+    username: root
+    password: 12345678          # change this before running
+    driver-class-name: com.mysql.cj.jdbc.Driver
+
+  jpa:
+    hibernate:
+      ddl-auto: update      # use 'validate' in production with Flyway/Liquibase
+    show-sql: false
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.MySQLDialect
+        format_sql: true
+
+  jackson:
+    default-property-inclusion: non_null
+    serialization:
+      write-dates-as-timestamps: false
+
+# JWT settings
+app:
+  jwt:
+    secret: 3cfa76ef14937c1c0ea519f8fc057a80fcd04a7e8d8f3de1420bf3aa45b1b3d  # use a long random string
+    expiration-ms: 86400000    # 24 hours
+    refresh-expiration-ms: 604800000  # 7 days
+
+# Swagger UI path: http://localhost:8081/swagger-ui.html
+springdoc:
+  api-docs:
+    path: /api-docs
+  swagger-ui:
+    path: /swagger-ui.html
+    tags-sorter: alpha
+    operations-sorter: alpha
+
+logging:
+  level:
+    com.finance.dashboard: DEBUG
+    org.springframework.security: INFO
